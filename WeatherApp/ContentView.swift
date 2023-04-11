@@ -8,9 +8,18 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @observedobject var cityVM: CityViewViewModel()
+
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        ZStack(alignment: .bottom) {
+            VStack(spacing: 0) {
+                MenuHeaderView(cityVM: cityVM)
+                ScrollView(showsIndicators: false) {
+                    CityView(cityVM: cityVM)
+                }
+            }.padding(.top, 30)
+        }
     }
 }
 
